@@ -6,6 +6,10 @@ import os
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def home():
+    return '¡Backend Flask desplegado correctamente!'
+
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.json
