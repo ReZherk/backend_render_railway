@@ -4,6 +4,8 @@ from db import get_connection
 import os
 
 app = Flask(__name__)
+
+# Permitir explícitamente el origen del frontend de desarrollo
 CORS(app, origins=["http://localhost:5173"])
 
 @app.route('/')
@@ -29,5 +31,5 @@ def login():
         return jsonify(success=False, message="Credenciales inválidas"), 401
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render asigna este puerto automáticamente
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
